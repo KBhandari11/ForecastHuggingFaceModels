@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LLM Cumulative Plot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@200&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="../static/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <center>
+    <div class="content">
+    <center>
+      <h1>Forecasting Open-Weight AI Model Growth on Hugging Face</h1>
+      <br/><br/>
+      <table class="authors">
+        <tr>
+          <td><a href="#">Kushal Raj Bhandari </a></td>
+          <td><a href="https://sites.google.com/site/pinyuchenpage/home">Pin-Yu Chen</a></td>
+          <td><a href="https://www.gaojianxi.com/">Jianxi Gao</a></td>
+        </tr>
+        <tr>
+            <td>Department of Computer Science</td>
+            <td>IBM Research </td>
+            <td>Department of Computer Science</td>
+          </tr>
+          <tr>
+            <td>Rensselaer Polytechnic Institute</td>
+            <td>Yorktown Heights, NY, USA</td>
+            <td>Rensselaer Polytechnic Institute</td>
+          </tr>
+          <tr>
+            <td>Troy, NY, USA </a></td>
+            <td></a></td>
+            <td>Troy, NY, USA </a></td>
+          </tr>
+      </table>
+      <br/>
+      <b><a href="#" class="lnk">Paper Link</a></b>
+      <br/><br/>
+      <div id="abstract" style="border-top:1px solid gray;border-bottom:1px solid gray;">
+        <h2>Abstract</h2>
+        <p>
+            As the open-weight AI landscape continues to proliferate—with model development, significant investment, and user interest—it becomes increasingly important to predict which models will ultimately drive innovation and shape AI ecosystems. Building on parallels with citation dynamics in scientific literature, we propose a framework to quantify how an open-weight model’s influence evolves. Specifically, we adapt the model introduced by Wang et al. for scientific citations, using three key parameters—immediacy, longevity, and relative fitness—to track the cumulative number of fine-tuned models of an open-weight model. Our findings reveal that this citation-style approach can effectively capture the diverse trajectories of open-weight model adoption, with most models fitting well and outliers indicating unique patterns or abrupt jumps in usage.
+        </p>
+      </div>
+      <div style="border-top:1px solid gray;border-bottom:1px solid gray; text-align:left">
+          <ul>
+            <li>Cumulative Number of Finetuned Models: Monthly cumulative number of fine-tuned models released after the base-model is released</li>
+            <li>Cumulative Number of Downloads: Daily cumulative number of downloads for models released after Sept 02, 2024.</li>
+          </ul>
+      </div>
+      <br/>
+      <label for="company">Select Company:</label>
+      <select id="company" value="DeepSeek">
+        <option value="DeepSeek">DeepSeek</option>
+        <option value="Google">Google</option>
+        <option value="Meta">Meta</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="AMAZON">AMAZON</option>
+        <option value="BAAI">BAAI</option>
+        <option value="OpenAI">OpenAI</option>
+        <option value="MistralAI">MistralAI</option>
+        <option value="Salesforce">Salesforce</option>
+        <option value="Allen_AI">Allen_AI</option>
+        <option value="IBM">IBM</option>
+        <option value="Qwen">Qwen</option>
+        <option value="StabilityAI">StabilityAI</option>
+        <option value="Apple">Apple</option>
+        <option value="Nvidia">Nvidia</option>
+        <option value="HuggingFace">HuggingFace</option>
+        <option value="CohereAI">CohereAI</option>
+      </select>
+      <label for="metric">Select Metric:</label>
+      <select id="metric" value="finetune">
+        <option value="finetune">Cumulative Number of Finetuned Models</option>
+        <option value="download">Cumulative Number of Downloads</option>
+      </select>
+      <label for="model">Select Model:</label>
+      <select id="model" >
+          <!-- Model options will be populated dynamically -->
+      </select>
+      <button id="plotData">Plot Data</button>
+      <button id="resetData" style="background-color: red; color: white; margin-left: 10px;">Reset</button>
+      <canvas id="plotCanvas"></canvas>
+      
+      <!-- Prediction Options -->
+      <div id="predictionContainer" style="display:none;">
+        <label for="predictionPoints">Select Number of Data Points for Prediction:</label>
+        <select id="predictionPoints" value="5"></select>
+    </div>
+
+    <div id="futureContainer" style="display:none;">
+        <label for="futureRange">Select Future Prediction Range:</label>
+        <select id="futureRange" value="30">
+            <option value="30">30 </option>
+            <option value="60">60 </option>
+            <option value="90">90 </option>
+            <option value="180">180 </option>
+            <option value="365">365 </option>
+            <option value="600">600 </option>
+        </select>
+    </div>
+
+    <div class="button-container">
+      <button id="predictData">Predict!</button>
+    </div>
+  
+    <div class="footnote">
+        <p>*data collected from September 02, 2024, until February 18, 2025.</p>
+    </div>
+    
+    </center>
+</div></center>
+<script src="../static/script.js"></script>
+</body>
+</html>
