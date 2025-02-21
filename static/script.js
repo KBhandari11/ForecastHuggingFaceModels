@@ -7,14 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const predictButton = document.getElementById("predictData");
     const chartCanvasId = "plotCanvas"; 
     
-    const companies = ["Microsoft", "Google", "Meta", "OpenAI", "AMAZON", "BAAI", "Allen_AI", "DeepSeek", "MistralAI", "StabilityAI", "Salesforce", "IBM", "Qwen", "Apple", "Nvidia", "HuggingFace", "CohereAI"];
-    
-    companies.forEach(company => {
-        let option = document.createElement("option");
-        option.value = company;
-        option.textContent = company;
-        companySelect.appendChild(option);
-    });
+  
     // Set default values
     companySelect.value = "DeepSeek";
     metricSelect.value = "download";
@@ -177,21 +170,20 @@ function populatePredictionDropdowns(metric) {
     const futureSelect = document.getElementById("futureRange");
 
     if (!predictionSelect || !futureSelect) return;
-
+    let time_val = metric === "finetune" ? "months" : "days"; 
     predictionSelect.innerHTML = "";
     let predictionOptions = metric === "finetune" ? [5, 10, 15, 20, "All"] : [5, 10, 50, 100, 200, "All"];
     predictionOptions.forEach(value => {
         let option = document.createElement("option");
         option.value = value;
-        option.textContent = value;
+        option.textContent = value + ` ${time_val}`;
         predictionSelect.appendChild(option);
     });
 
     document.getElementById("predictionContainer").style.display = "block";
-
     futureSelect.innerHTML = "";
     let futureOptions = [10, 20, 30, 60, 90, 180, 365, 600];
-    let time_val = metric === "finetune" ? "months" : "days"; 
+    
     futureOptions.forEach(value => {
         let option = document.createElement("option");
         option.value = value;
@@ -212,15 +204,15 @@ function resetSelections() {
     document.getElementById("model").disabled = false;
     document.getElementById("plotData").disabled = false;
 
-    document.getElementById("company").value = "DeepSeek";
-    document.getElementById("metric").value = "download";
+    //document.getElementById("company").value = "DeepSeek";
+    //document.getElementById("metric").value = "download";
 
-    updateModelDropdown().then(() => {
-        const modelSelect = document.getElementById("model");
-        if (modelSelect.options.length > 0) {
-            modelSelect.value = modelSelect.options[0].value;
-        }
-    });
+    //updateModelDropdown().then(() => {
+    //    const modelSelect = document.getElementById("model");
+    //    if (modelSelect.options.length > 0) {
+    //        modelSelect.value = modelSelect.options[0].value;
+    //    }
+    //});
 
     // Destroy the chart instance before clearing the canvas
     if (chartInstance !== null) {

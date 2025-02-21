@@ -45,12 +45,22 @@
             As the open-weight AI landscape continues to proliferate—with model development, significant investment, and user interest—it becomes increasingly important to predict which models will ultimately drive innovation and shape AI ecosystems. Building on parallels with citation dynamics in scientific literature, we propose a framework to quantify how an open-weight model’s influence evolves. Specifically, we adapt the model introduced by Wang et al. for scientific citations, using three key parameters—immediacy, longevity, and relative fitness—to track the cumulative number of fine-tuned models of an open-weight model. Our findings reveal that this citation-style approach can effectively capture the diverse trajectories of open-weight model adoption, with most models fitting well and outliers indicating unique patterns or abrupt jumps in usage.
         </p>
       </div>
-      <div style="border-top:1px solid gray;border-bottom:1px solid gray; text-align:left">
-          <ul>
-            <li>Cumulative Number of Finetuned Models: Monthly cumulative number of fine-tuned models released after the base-model is released</li>
-            <li>Cumulative Number of Downloads: Daily cumulative number of downloads for models released after Sept 02, 2024.</li>
-          </ul>
+      <div id="highlights" style="border-top:1px solid gray;border-bottom:1px solid gray;">
+        <h2>Highlights</h2>
+            <div class="prediction">
+              <span class="icon">📈</span> Given the initial 10 days of downloads, we predict that the DeepSeek-R1 model will exceed 14 billion downloads within 100 days of release.
+          </div>
+          <div class="prediction">
+              <span class="icon">🔥</span> While Llama2-7B models are reaching saturation with number of finetuned models, Llama-3.1-8B models are projected to have double the number of finetuned models within next year.
+          </div>
+          <div class="prediction">
+            <span class="icon">⏳</span> MistralAI's models show unique adoption trajectory with stepwise increament, but steady growth signaling long-term viability.
+        </div>
+          <div class="prediction">
+              <span class="icon">📊</span> In general, number of models released by each companies are gowing significantly. 
+          </div>
       </div>
+      
       <br/>
       <label for="company">Select Company:</label>
       <select id="company" value="DeepSeek">
@@ -106,11 +116,27 @@
     <div class="button-container">
       <button id="predictData">Predict!</button>
     </div>
+    <div style="border-top:1px solid gray;border-bottom:1px solid gray; text-align:left">
+      <ul>
+        <li>Cumulative Number of Finetuned Models: Monthly cumulative number of fine-tuned models released after the base-model is released</li>
+        <li>Cumulative Number of Downloads: Daily cumulative number of downloads for models released after Sept 02, 2024.</li>
+      </ul>
+  </div>
   
-    <div class="footnote">
-        <p>*data collected from September 02, 2024, until February 18, 2025.</p>
-    </div>
-    
+    <h2>Reference</h2>
+    <div class="citation">
+      <pre id="citation-text">
+@article{ bhandari2024forecasting,
+          author = {Bhandari, Kushal Raj and Chen, Pin-Yu and Gao, Jianxi},
+          title = {Forecasting Open-Weight AI Model Growth on Hugging Face},
+          journal = {arXiv preprint arXiv:2401.12345},
+          year = {2024}
+}
+      </pre>
+  </div>
+  <div class="footnote">
+    <p>*data collected from September 02, 2024, until February 18, 2025.</p>
+</div>   
     </center>
 </div></center>
 <script src="../static/script.js"></script>
