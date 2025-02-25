@@ -269,7 +269,7 @@ document.getElementById("predictData").addEventListener("click", async function 
                     pointBackgroundColor: "blue",
                 },
                 {
-                    label: `Actual Data for Prediction`,
+                    label: `Actual Data`,
                     data: actualValues,
                     borderColor: "green",
                     fill: false,
