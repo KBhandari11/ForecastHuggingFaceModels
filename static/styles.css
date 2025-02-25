@@ -48,6 +48,7 @@ h1 {
     width: 80%;
     text-align: justify;
     padding-bottom: 30px;
+    display: flex;
 }
 
 .btn {
@@ -158,6 +159,7 @@ h1 {
 
 /* Footnote for data collection period */
 .footnote {
+    display: flex;
     margin-top: 20px;
     text-align: left;
     font-size: 12px;
